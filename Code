@@ -1,0 +1,50 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package project;
+
+import java.awt.Color;
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
+import javafx.stage.Stage;
+
+/**
+ *
+ * @author Dalie
+ */
+public class Project extends Application {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+       launch();
+    }
+
+    @Override
+    public void start(Stage stage) throws Exception {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Group root = new Group();
+    String trailer = getHostServices().getDocumentBase()+"trailers/test.mp4";
+     Media media = new Media(trailer);
+   
+    MediaPlayer player= new MediaPlayer(media);
+    MediaView view=new MediaView(player);
+    
+    root.getChildren().add(view);
+    Scene scene=new Scene(root, 400, 400,true);
+    stage.setScene(scene);
+    stage.show();
+    player.play();
+    
+    
+    
+    }
+    
+}
